@@ -12,11 +12,36 @@ body {
 /* =================
   Layout
  ================= */
+.technology {
+  grid-area: tec;
+}
+
+.environment {
+  grid-area: env;
+}
+
+.nasa {
+  grid-area: nas;
+}
+
+.physics {
+  grid-area: phy;
+}
+
+.health {
+  grid-area: hea;
+}
 
 main {
   display: grid;
-  grid-template-columns: 1fr;
   gap: 1em;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'tec'
+    'env'
+    'nas'
+    'phy'
+    'hea';
 }
 
 /* =================
@@ -101,23 +126,31 @@ img {
 @media (min-width: 500px) {
   main {
     grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'tec tec'
+      'env nas'
+      'phy nas'
+      'hea hea';
   }
 
-  .technology,
+  /*   .technology,
   .health {
     grid-column: span 2;
   }
   .nasa {
     grid-row: span 2;
-  }
+  } */
 }
 
 @media (min-width: 870px) {
   main {
     grid-template-columns: repeat(12, 1fr);
+    grid-template-areas:
+      'tec tec tec tec tec tec env env env nas nas nas'
+      'phy phy phy hea hea hea hea hea hea nas nas nas';
   }
 
-  .technology {
+  /*   .technology {
     grid-column: 1 / 7;
   }
 
@@ -135,5 +168,5 @@ img {
 
   .health {
     grid-column: 4 / 10;
-  }
+  } */
 }
